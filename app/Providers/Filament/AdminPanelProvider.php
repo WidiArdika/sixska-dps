@@ -59,7 +59,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             // ->brandName('Admin Panel SIXSKA DPS')
-            ->brandLogo(asset('images/Admin.png'))
+            ->brandLogo(asset('images/Admin-Prof.png'))
             ->brandLogoHeight('1.7rem')
             ->favicon(asset('images/SMKN6.svg'))
             ->login()

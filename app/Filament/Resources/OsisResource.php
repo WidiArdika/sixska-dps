@@ -19,7 +19,7 @@ class OsisResource extends Resource
 {
     protected static ?string $model = Osis::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-table-cells';
     protected static ?string $navigationLabel = 'Struktur Osis';
     protected static ?string $navigationGroup = 'Kesiswaan';
 
