@@ -68,7 +68,7 @@
                         <a href="{{ route('profil.sekolah') }}" class="block mt-2 text-sm text-stone-300 hover:text-white">Profil Sekolah</a>
                         <a href="{{ route('profil.sekolah') }}#visi-misi" class="block mt-2 text-sm text-stone-300 hover:text-white">Visi dan Misi Sekolah</a>
                         <a href="{{ route('staf.guru') }}" class="block mt-2 text-sm text-stone-300 hover:text-white">Staf dan Guru</a>
-                        <a href="#" class="block mt-2 text-sm text-stone-300 hover:text-white">Fasilitas Sekolah</a>
+                        <a href="{{ route('fasilitas.index') }}" class="block mt-2 text-sm text-stone-300 hover:text-white">Fasilitas Sekolah</a>
                     </div>
 
                     <div>

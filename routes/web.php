@@ -10,6 +10,7 @@ use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\EkstrakurikulerController;
 use App\Http\Controllers\OsisController;
+use App\Http\Controllers\FasilitasController;
 
 use App\Models\ProfilSekolah;
 use App\Models\Kontak;
@@ -47,3 +48,5 @@ Route::get('/kontak', function () {
     $kontak = Kontak::firstOrNew([]);
     return view('pages.kontak.kontak', compact('kontak'));
 })->name('kontak.index');
+
+Route::get('/fasilitas', [FasilitasController::class, 'index'])->name('fasilitas.index');

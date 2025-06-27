@@ -78,7 +78,7 @@
                         <li><a href="{{ route('profil.sekolah') }}" class="block p-2 text-stone-300 hover:text-white">Profil Sekolah</a></li>
                         <li><a href="{{ route('profil.sekolah') }}#visi-misi" class="block p-2 text-stone-300 hover:text-white">Visi dan Misi</a></li>
                         <li><a href="{{ route('staf.guru') }}" class="block p-2 text-stone-300 hover:text-white">Staf dan Guru</a></li>
-                        <li><a href="#" class="block p-2 text-stone-300 hover:text-white">Fasilitas Sekolah</a></li>
+                        <li><a href="{{ route('fasilitas.index') }}" class="block p-2 text-stone-300 hover:text-white">Fasilitas Sekolah</a></li>
                         </ul>
                     </div>
                     <!-- Desktop View -->
@@ -94,7 +94,7 @@
                         <li><a href="{{ route('profil.sekolah') }}" class="block px-4 py-2 text-stone-300 hover:bg-stone-800 hover:text-white">Profil Sekolah</a></li>
                         <li><a href="{{ route('profil.sekolah') }}#visi-misi" class="block px-4 py-2 text-stone-300 hover:bg-stone-800 hover:text-white">Visi dan Misi</a></li>
                         <li><a href="{{ route('staf.guru') }}" class="block px-4 py-2 text-stone-300 hover:bg-stone-800 hover:text-white">Staf dan Guru</a></li>
-                        <li><a href="#" class="block px-4 py-2 text-stone-300 hover:bg-stone-800 hover:text-white">Fasilitas Sekolah</a></li>
+                        <li><a href="{{ route('fasilitas.index') }}" class="block px-4 py-2 text-stone-300 hover:bg-stone-800 hover:text-white">Fasilitas Sekolah</a></li>
                         </ul>
                     </div>
                     </li>

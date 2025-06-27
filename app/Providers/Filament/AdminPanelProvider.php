@@ -74,6 +74,7 @@ class AdminPanelProvider extends PanelProvider
                 \App\Filament\Resources\ProfilSekolahResource::class,
                 \App\Filament\Resources\StafResource::class,
                 \App\Filament\Resources\KepalaSekolahResource::class,
+                \App\Filament\Resources\FasilitasResource::class,
                 \App\Filament\Resources\JurusanResource::class,
                 \App\Filament\Resources\OsisResource::class,
                 \App\Filament\Resources\EkstrakurikulerResource::class,
@@ -154,6 +155,9 @@ class AdminPanelProvider extends PanelProvider
                     
                     NavigationItem::make('Kontak')
                         ->url(route('filament.admin.resources.kontaks.index')),
+                    
+                    NavigationItem::make('Fasilitas')
+                        ->url(route('filament.admin.resources.fasilitas.index')),
                 ]),
         ];
     }
