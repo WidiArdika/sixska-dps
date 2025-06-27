@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="mx-auto bg-repeat lg:pb-6" style="background-image: url('{{ asset('images/Gambarbg.svg') }}');">
+    <div class="mx-auto bg-repeat lg:pb-6" style="background-image: url('{{ asset('images/YellowBG.svg') }}');">
         @if($images->count() > 0)
             <div class="lg:px-45 lg:py-6">
                 <div class="w-full mx-auto relative" 
@@ -82,7 +82,7 @@
         </div>
     </div>
 
-    <div class="lg:px-45 lg:py-12 p-4 lg:p-0">
+    <div class="lg:px-45 lg:py-12 p-4 lg:p-0 bg-repeat mx-auto" style="background-image: url('{{ asset('images/WhiteBG.svg') }}');">
         @php
             $profile = \App\Models\ProfileInfo::first(); // Ambil 1 data saja
         @endphp
@@ -103,7 +103,7 @@
                             class="w-full aspect-video object-cover rounded-xl shadow-xl" />
                     @endif
                 </div>
-                <div class="bg-white rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.1)] p-8 lg:p-10 border border-gray-100 ring-1 ring-gray-100">
+                <div class="bg-white rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.1)] p-8 lg:p-10">
                     <h1 class="font-black text-xl md:text-2xl xl:text-3xl text-yellow-950 pb-3 uppercase leading-none text-center">
                         {{ $profile->judul }}
                     </h1>
