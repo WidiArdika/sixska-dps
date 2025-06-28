@@ -152,7 +152,7 @@
         <div class="text-center font-inter">
             <h1 class="text-white font-black text-4xl md:text-5xl">Fasilitas Sekolah</h1>
             <p class="mt-2 mb-6 text-white font-light text-xs md:text-base">Jelajahi fasilitas lengkap kami mulai dari ruang belajar modern hingga area praktik kejuruan yang semuanya dirancang untuk membekali siswa dengan pengalaman belajar yang nyata dan relevan.</p>
-            <a href="{{ route('fasilitas.index') }}" class="py-3 px-12 bg-yellow-300 font-bold text-yellow-950 rounded-xl">Jelajahi Fasilitas</a>
+            <a href="{{ route('fasilitas.index') }}" class="py-3 px-12 bg-yellow-300 font-bold text-yellow-950 hover:bg-yellow-500 rounded-xl">Jelajahi Fasilitas</a>
         </div>
     </div>
 

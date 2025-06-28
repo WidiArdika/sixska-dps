@@ -61,8 +61,8 @@ class StafResource extends Resource
                             'Nama file maksimal 50 karakter tanpa menggunakan symbols<br>' .
                             'Format yang didukung: JPEG, JPG, PNG, WebP<br>' .
                             '<br>' .
-                            'Gunakan Rasio Gambar [ 2:3 ]<br>' .
-                            'Contoh ukuran dalam pixel : 1280x1920<br>' .
+                            'Gunakan Rasio Gambar [ 3:4 ]<br>' .
+                            'Contoh ukuran dalam pixel : 1800x2400<br>' .
                             'Ukuran file maksimal : 2MB'
                         ))
                         ->uploadingMessage('Uploading image...')

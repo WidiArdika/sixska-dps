@@ -34,11 +34,12 @@ class FasilitasResource extends Resource
                     ->label('Nama Fasilitas'),
 
                 FileUpload::make('gambar_360')
+                    ->disk('public')
                     ->label('Gambar 360°')
                     ->directory('fasilitas')
                     ->image()
                     ->acceptedFileTypes(['image/*'])
-                    ->preserveFilenames()
+                    ->preserveFilenames(false)
                     ->required(),
             ]);
     }

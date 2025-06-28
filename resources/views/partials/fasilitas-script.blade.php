@@ -6,8 +6,8 @@
             container: viewerContainer,
             controlBar: true,
             autoHideInfospot: false,
-            autoRotate: true,           // ✅ Aktifkan auto-rotate langsung
-            autoRotateSpeed: 0.3        // ✅ Kecepatan mutar
+            autoRotate: true,           // Aktifkan auto-rotate langsung
+            autoRotateSpeed: 1        // Kecepatan mutar
         });
 
         const panoramas = {};
@@ -41,6 +41,22 @@
         if (firstId && panoramas[firstId]) {
             viewer.setPanorama(panoramas[firstId]);
             // ❌ Jangan tambahkan autoRotate di sini, sudah aktif dari awal
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById('fasilitasTabs');
+        const scrollLeftBtn = document.getElementById('scrollLeft');
+        const scrollRightBtn = document.getElementById('scrollRight');
+
+        if (scrollLeftBtn && scrollRightBtn && container) {
+            scrollLeftBtn.addEventListener('click', () => {
+                container.scrollBy({ left: -200, behavior: 'smooth' });
+            });
+
+            scrollRightBtn.addEventListener('click', () => {
+                container.scrollBy({ left: 200, behavior: 'smooth' });
+            });
         }
     });
 </script>
