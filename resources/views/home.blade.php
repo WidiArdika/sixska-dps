@@ -122,7 +122,7 @@
         @endif
     </div>
 
-    <div class="lg:px-45 pb-12 font-inter bg-yellow-50">
+    <div class="lg:px-45 pb-6 md:pb-12 font-inter bg-yellow-50">
         <div class="bg-gradient-to-r from-white/0 from-0% via-white/100 to-white/0 to-100% h-1.5"></div>
         
         <div class="text-center py-4 md:py-6 lg:py-8 bg-gradient-to-r from-yellow-400/0 from-0% via-yellow-400/100 to-yellow-400/0 to-100%">
@@ -144,7 +144,6 @@
                     :jurusan="$jurusan"
                 />
             @endforeach
-
         </div>
     </div>
 
