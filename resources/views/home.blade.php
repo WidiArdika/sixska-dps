@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="mx-auto bg-repeat lg:pb-6" style="background-image: url('{{ asset('images/YellowBG.svg') }}');">
+    <div class="mx-auto bg-repeat lg:pb-6 bg-[length:800px]" style="background-image: url('{{ asset('images/YellowBG.svg') }}');">
         @if($images->count() > 0)
             <div class="lg:px-45 lg:py-6">
                 <div class="w-full mx-auto relative" 
@@ -82,7 +82,7 @@
         </div>
     </div>
 
-    <div class="lg:px-45 lg:py-12 p-4 lg:p-0 bg-repeat mx-auto" style="background-image: url('{{ asset('images/WhiteBG.svg') }}');">
+    <div class="border-t-9 border-white lg:px-45 lg:py-12 p-4 lg:p-0 bg-repeat mx-auto bg-[length:800px]" style="background-image: url('{{ asset('images/WhiteBG.svg') }}');">
         @php
             $profile = \App\Models\ProfileInfo::first(); // Ambil 1 data saja
         @endphp
@@ -111,7 +111,7 @@
                         {{ $profile->deskripsi }}
                     </p>
                     <a class="text-xs xl:text-sm py-3 bg-yellow-300 rounded-xl flex items-center justify-center text-yellow-900 font-bold hover:bg-yellow-400 hover:text-yellow-950" href="{{ route('profil.sekolah') }}">
-                        Baca Selengkapnya →
+                        Baca Selengkapnya ->
                     </a>
                 </div>
             </div>
@@ -145,6 +145,14 @@
                 />
             @endforeach
 
+        </div>
+    </div>
+
+    <div class="lg:px-50 xl:px-80 lg:py-22 md:px-20 px-4 py-18 lg:p-0 bg-repeat mx-auto bg-[length:800px]" style="background-image: url('{{ asset('images/BlackBG.svg') }}');">
+        <div class="text-center font-inter">
+            <h1 class="text-white font-black text-4xl md:text-5xl">Fasilitas Sekolah</h1>
+            <p class="mt-2 mb-6 text-white font-light text-xs md:text-base">Jelajahi fasilitas lengkap kami mulai dari ruang belajar modern hingga area praktik kejuruan yang semuanya dirancang untuk membekali siswa dengan pengalaman belajar yang nyata dan relevan.</p>
+            <a href="{{ route('fasilitas.index') }}" class="py-3 px-12 bg-yellow-300 font-bold text-yellow-950 rounded-xl">Jelajahi Fasilitas</a>
         </div>
     </div>
 
