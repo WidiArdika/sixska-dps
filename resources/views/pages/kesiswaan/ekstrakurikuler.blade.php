@@ -12,9 +12,9 @@
 
     <div class="w-full lg:px-45 lg:pb-12 py-8 px-4 md:px-8 font-inter">
         <h1 class="hidden md:block mb-7 text-3xl font-bold text-stone-900">Daftar Ekstrakurikuler</h1>
-        <div class="grid grid-cols-1 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             @foreach ($ekstrakurikulers as $ekstrakurikuler)
-                <x-ekstrakurikuler-card :ekstrakurikuler="$ekstrakurikuler" :lineClamp="10" />
+                <x-ekstrakurikuler-card :ekstrakurikuler="$ekstrakurikuler"/>
             @endforeach
         </div>
     </div>

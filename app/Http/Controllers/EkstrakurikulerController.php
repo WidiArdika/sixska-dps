@@ -15,7 +15,14 @@ class EkstrakurikulerController extends Controller
 
     public function show($slug)
     {
-        $ekstrakurikulers = Ekstrakurikuler::where('slug', $slug)->firstOrFail();
-        return view('pages.kesiswaan.ekstrakurikuler-show', compact('ekstrakurikulers'));
+        $ekstrakurikuler = Ekstrakurikuler::where('slug', $slug)->firstOrFail();
+
+        // Ambil 5 data acak, kecuali yang sedang ditampilkan
+        $ekstrakurikulers = Ekstrakurikuler::where('id', '!=', $ekstrakurikuler->id)
+            ->inRandomOrder()
+            ->take(5)
+            ->get();
+
+        return view('pages.kesiswaan.ekstrakurikuler_show', compact('ekstrakurikuler', 'ekstrakurikulers'));
     }
 }

@@ -16,6 +16,13 @@ class PrestasiController extends Controller
     public function show($slug)
     {
         $prestasi = Prestasi::where('slug', $slug)->firstOrFail();
-        return view('pages.kesiswaan.prestasi-show', compact('prestasi'));
+
+        // Ambil 5 prestasi terbaru, kecuali yang sedang ditampilkan
+        $prestasiLainnya = Prestasi::where('id', '!=', $prestasi->id)
+            ->latest()
+            ->take(5)
+            ->get();
+
+        return view('pages.kesiswaan.prestasi-show', compact('prestasi', 'prestasiLainnya'));
     }
 }

@@ -2,7 +2,7 @@
 
 @if ($ekstrakurikuler)
     <div {{ $attributes->class(['overflow-hidden rounded-xl bg-white shadow-md']) }}>
-        <div class="relative">
+        <div class="">
             <a href="{{ route('ekstrakurikuler.show', $ekstrakurikuler->slug) }}">
                 <img src="{{ $ekstrakurikuler->gambar 
                     ? asset('storage/' . $ekstrakurikuler->gambar) 
@@ -10,11 +10,6 @@
                     alt="{{ $ekstrakurikuler->judul }}"
                     class="aspect-3/2 w-full object-cover">
             </a>
-            <div class="absolute top-1.5 right-1.5 px-3 py-1 rounded-full bg-stone-900/50">
-                <p class="text-white text-xs font-inter">
-                    {{ $ekstrakurikuler->created_at->diffForHumans() }}
-                </p>
-            </div>
         </div>
         <div class="px-6 pt-4 pb-2">
             <a href="{{ route('ekstrakurikuler.show', $ekstrakurikuler->slug) }}"
