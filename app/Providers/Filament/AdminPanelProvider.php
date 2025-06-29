@@ -21,6 +21,8 @@ use Filament\Navigation\NavigationItem;
 use Filament\Navigation\NavigationGroup;
 use Filament\Support\Facades\FilamentView;
 use Illuminate\Support\Facades\Blade;
+use App\Filament\Pages\Auth\CustomRegister;
+use App\Filament\Pages\Auth\CustomLogin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -62,7 +64,8 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogo(asset('images/Admin-Prof.png'))
             ->brandLogoHeight('1.7rem')
             ->favicon(asset('images/SMKN6.svg'))
-            ->login()
+            ->login(CustomLogin::class) // ⬅️ custom login
+            ->registration(CustomRegister::class) // ⬅️ custom regis
             ->colors([
                 'primary' => Color::Amber,
             ])
