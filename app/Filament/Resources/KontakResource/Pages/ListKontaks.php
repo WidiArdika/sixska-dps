@@ -15,16 +15,29 @@ class ListKontaks extends ListRecords
     {
         // Sembunyikan tombol Create jika sudah ada data
         return \App\Models\Kontak::count() === 0 ? [
-            CreateAction::make(),
+            CreateAction::make()
+            ->label('Tambah Informasi Kontak'),
         ] : [];
     }
 
-    protected function getRedirectUrl(): string
-    {
-        $record = \App\Models\Kontak::first();
+    // protected function getRedirectUrl(): string
+    // {
+    //     $record = \App\Models\Kontak::first();
 
-        return $record
-            ? static::$resource::getUrl('edit', ['record' => $record])
-            : static::$resource::getUrl('create');
+    //     return $record
+    //         ? static::$resource::getUrl('edit', ['record' => $record])
+    //         : static::$resource::getUrl('create');
+    // }
+
+    public function mount(): void
+    {
+        parent::mount();
+
+        // Cek apakah sudah ada data
+        $kontak = \App\Models\Kontak::first();
+        if ($kontak) {
+            // Redirect ke halaman edit
+            $this->redirect(KontakResource::getUrl('edit', ['record' => $kontak->getKey()]));
+        }
     }
 }

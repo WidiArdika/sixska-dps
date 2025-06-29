@@ -66,11 +66,13 @@ class AdminPanelProvider extends PanelProvider
             ->favicon(asset('images/SMKN6.svg'))
             ->login(CustomLogin::class) // ⬅️ custom login
             ->registration(CustomRegister::class) // ⬅️ custom regis
+            ->profile()
             ->colors([
                 'primary' => Color::Amber,
             ])
             // ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->resources([
+                \App\Filament\Resources\UserResource::class,
                 \App\Filament\Resources\ImageCarouselResource::class,
                 \App\Filament\Resources\IconContentResource::class,
                 \App\Filament\Resources\ProfileInfoResource::class,
