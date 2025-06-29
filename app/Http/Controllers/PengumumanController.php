@@ -18,6 +18,13 @@ class PengumumanController extends Controller
     public function show($slug)
     {
         $pengumuman = Pengumuman::where('slug', $slug)->firstOrFail();
-        return view('pages.informasi.pengumuman-show', compact('pengumuman'));
+
+        // Ambil 5 pengumuman terbaru selain yang sedang dibuka
+        $pengumumanTerbaru = Pengumuman::where('id', '!=', $pengumuman->id)
+            ->latest()
+            ->take(5)
+            ->get();
+
+        return view('pages.informasi.pengumuman-show', compact('pengumuman', 'pengumumanTerbaru'));
     }
 }

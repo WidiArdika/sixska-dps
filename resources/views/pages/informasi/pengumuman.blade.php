@@ -13,8 +13,8 @@
     <div class="hidden md:block w-full lg:px-45 lg:pt-12 py-8 px-4 md:px-8 font-inter">
         <h1 class="hidden md:block mb-7 text-3xl font-bold text-stone-900">Daftar Pengumuman Terkini</h1>
         <div class="grid grid-cols-3 gap-4">
-                <x-pengumuman-card :pengumuman="$pengumumanPertama" :lineClamp="10" :textSize="'4xl'" class="col-span-2" />
-                <x-pengumuman-card :pengumuman="$pengumumanKedua" :lineClamp="23" :textSize="'2xl'" />
+                <x-pengumuman-card :pengumuman="$pengumumanPertama" :lineClamp="5" :textSize="'4xl'" class="col-span-2" />
+                <x-pengumuman-card :pengumuman="$pengumumanKedua" :lineClamp="18" :textSize="'2xl'" />
         </div>
     </div>
 

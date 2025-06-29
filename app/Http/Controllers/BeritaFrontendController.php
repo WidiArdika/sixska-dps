@@ -18,6 +18,13 @@ class BeritaFrontendController extends Controller
     public function show($slug)
     {
         $berita = Berita::where('slug', $slug)->firstOrFail();
-        return view('pages.informasi.berita-show', compact('berita'));
+
+        // Ambil 5 berita lain secara acak, kecuali yang sedang ditampilkan
+        $beritaLainnya = Berita::where('id', '!=', $berita->id)
+            ->inRandomOrder()
+            ->take(5)
+            ->get();
+
+        return view('pages.informasi.berita-show', compact('berita', 'beritaLainnya'));
     }
 }
