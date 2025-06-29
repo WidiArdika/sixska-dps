@@ -26,6 +26,8 @@ class ImageCarouselResource extends Resource
 
     protected static ?string $modelLabel = 'Image Carousel';
 
+    protected static ?string $pluralModelLabel = 'Image Carousel';
+    
     protected static ?string $navigationGroup = 'Home Page';
 
     public static function form(Form $form): Form

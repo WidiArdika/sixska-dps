@@ -30,6 +30,9 @@ class BeritaResource extends Resource
 
     protected static ?string $navigationLabel = 'Berita dan Kegiatan';
 
+    protected static ?string $modelLabel = 'Berita dan Kegiatan';
+    protected static ?string $pluralModelLabel = 'Berita dan Kegiatan';
+
     public static function form(Form $form): Form
     {
         return $form

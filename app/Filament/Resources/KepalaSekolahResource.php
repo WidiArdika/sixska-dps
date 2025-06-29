@@ -30,6 +30,10 @@ class KepalaSekolahResource extends Resource
 
     protected static ?string $navigationLabel = 'Kepala Sekolah';
 
+    protected static ?string $modelLabel = 'Kepala Sekolah';
+
+    protected static ?string $pluralModelLabel = 'Kepala Sekolah';
+
     public static function form(Form $form): Form
     {
         return $form

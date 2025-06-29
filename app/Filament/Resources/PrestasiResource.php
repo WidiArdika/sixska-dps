@@ -27,6 +27,8 @@ class PrestasiResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-trophy';
     protected static ?string $navigationGroup = 'Kesiswaan';
     protected static ?string $navigationLabel = 'Prestasi Siswa';
+    protected static ?string $modelLabel = 'Prestasi Siswa';
+    protected static ?string $pluralModelLabel = 'Prestasi Siswa';
 
     public static function form(Form $form): Form
     {

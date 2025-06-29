@@ -22,6 +22,8 @@ class OsisResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-table-cells';
     protected static ?string $navigationLabel = 'Struktur Osis';
     protected static ?string $navigationGroup = 'Kesiswaan';
+    protected static ?string $modelLabel = 'Struktur Osis';
+    protected static ?string $pluralModelLabel = 'Struktur Osis';
 
     public static function form(Form $form): Form
     {

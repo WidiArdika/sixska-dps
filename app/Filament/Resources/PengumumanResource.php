@@ -24,6 +24,8 @@ class PengumumanResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-megaphone';
     protected static ?string $navigationGroup = 'Informasi';
     protected static ?string $navigationLabel = 'Pengumuman';
+    protected static ?string $modelLabel = 'Pengumuman';
+    protected static ?string $pluralModelLabel = 'Pengumuman';
 
     public static function form(Form $form): Form
     {

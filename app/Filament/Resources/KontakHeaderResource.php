@@ -25,6 +25,9 @@ class KontakHeaderResource extends Resource
 
     protected static ?string $navigationGroup = 'Kontak';
 
+    protected static ?string $modelLabel = 'Kontak Navbar';
+    protected static ?string $pluralModelLabel = 'Kontak Navbar';
+
     public static function form(Form $form): Form
     {
         return $form

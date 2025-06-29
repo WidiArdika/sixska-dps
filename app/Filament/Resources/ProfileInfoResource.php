@@ -27,6 +27,10 @@ class ProfileInfoResource extends Resource
 
     protected static ?string $navigationLabel = 'Informasi Profil Singkat';
 
+    protected static ?string $modelLabel = 'Informasi Profil Singkat';
+
+    protected static ?string $pluralModelLabel = 'Informasi Profil Singkat';
+
     public static function form(Form $form): Form
     {
         return $form

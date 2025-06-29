@@ -30,6 +30,10 @@ class StafResource extends Resource
 
     protected static ?string $navigationLabel = 'Staf dan Guru';
 
+    protected static ?string $modelLabel = 'Staf dan Guru';
+
+    protected static ?string $pluralModelLabel = 'Staf dan Guru';
+
     public static function form(Form $form): Form
     {
         return $form

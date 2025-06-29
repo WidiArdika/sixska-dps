@@ -26,6 +26,8 @@ class EkstrakurikulerResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-puzzle-piece';
     protected static ?string $navigationGroup = 'Kesiswaan';
     protected static ?string $navigationLabel = 'Ekstrakurikuler';
+    protected static ?string $modelLabel = 'Ekstrakurikuler';
+    protected static ?string $pluralModelLabel = 'Ekstrakurikuler';
 
     public static function form(Form $form): Form
     {

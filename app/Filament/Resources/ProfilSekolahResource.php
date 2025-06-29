@@ -28,6 +28,10 @@ class ProfilSekolahResource extends Resource
 
     protected static ?string $navigationLabel = 'Profil Sekolah';
 
+    protected static ?string $modelLabel = 'Profil Sekolah';
+
+    protected static ?string $pluralModelLabel = 'Profil Sekolah';
+
     public static function form(Form $form): Form
     {
         return $form

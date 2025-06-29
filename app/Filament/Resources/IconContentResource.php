@@ -23,6 +23,10 @@ class IconContentResource extends Resource
 
     protected static ?string $navigationLabel = 'Konten Icon Cards';
 
+    protected static ?string $modelLabel = 'Konten Icon Cards';
+
+    protected static ?string $pluralModelLabel = 'Konten Icon Cards';
+
     protected static ?string $navigationGroup = 'Home Page';
 
     public static function form(Form $form): Form

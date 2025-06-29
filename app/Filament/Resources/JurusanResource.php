@@ -23,9 +23,12 @@ class JurusanResource extends Resource
 {
     protected static ?string $model = Jurusan::class;
 
-    protected static ?string $navigationGroup = 'Jurusan';
+    protected static ?string $navigationGroup = 'Jurusan Sekolah';
 
     protected static ?string $navigationLabel = 'Daftar Jurusan';
+
+    protected static ?string $modelLabel = 'Jurusan';
+    protected static ?string $pluralModelLabel = 'Jurusan';
 
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
 
