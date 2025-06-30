@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Filament\Widgets;
+
+use App\Models\Prestasi;
+use Filament\Widgets\TableWidget as BaseWidget;
+use Filament\Tables;
+use Filament\Tables\Table;
+
+class PrestasiTerbaru extends BaseWidget
+{
+    protected static ?string $heading = 'Prestasi Terbaru';
+    protected static ?int $sort = 4;
+
+    public function table(Table $table): Table
+    {
+        return $table
+            ->query(
+                Prestasi::latest()->limit(5)
+            )
+            ->paginated(false)
+            ->columns([
+                Tables\Columns\TextColumn::make('judul')
+                    ->label('Judul')
+                    ->limit(40),
+
+                Tables\Columns\TextColumn::make('tanggal')
+                    ->label('Tanggal')
+                    ->date()
+                    ->sortable(),
+
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Dibuat')
+                    ->since(),
+            ]);
+    }
+}

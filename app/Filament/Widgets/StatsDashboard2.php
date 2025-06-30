@@ -10,6 +10,8 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class StatsDashboard2 extends BaseWidget
 {
+    protected ?string $heading = 'Ringkasan Data Sekolah';
+    protected ?string $description = 'Informasi lengkap mengenai jumlah jurusan, kegiatan ekstrakurikuler, dan tenaga pendidik di sekolah.';
     protected static ?int $sort = 2;
     protected function getStats(): array
     {

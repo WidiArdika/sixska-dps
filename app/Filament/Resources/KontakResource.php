@@ -49,6 +49,7 @@ class KontakResource extends Resource
                 Forms\Components\Textarea::make('google_maps_embed')
                     ->label('Embed Google Maps')
                     ->rows(3)
+                    ->helperText('Tempel Embed Maps, contoh kode : <iframe src="https://www.google.com/maps/embed...')
                     ->columnSpanFull()
                     ->nullable(),
                 Forms\Components\TextInput::make('instagram')

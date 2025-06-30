@@ -10,8 +10,8 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class StatsDashboard extends BaseWidget
 {
-    protected ?string $heading = 'Analytics';
-    protected ?string $description = 'An overview of some analytics.';
+    protected ?string $heading = 'Ringkasan Aktivitas Sekolah';
+    protected ?string $description = 'Monitoring real-time untuk berita terbaru, pengumuman sekolah, dan pencapaian prestasi siswa.';
     protected static ?int $sort = 1;
 
     protected function getStats(): array

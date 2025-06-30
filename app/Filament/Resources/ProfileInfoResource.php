@@ -39,6 +39,7 @@ class ProfileInfoResource extends Resource
                 TextInput::make('judul')
                     ->label('Judul')
                     ->required()
+                    ->placeholder('Contoh : SMK NEGERI 6 DENPASAR')
                     ->maxLength(255),
 
                 TextInput::make('youtube_url')
@@ -46,7 +47,7 @@ class ProfileInfoResource extends Resource
                     ->required()
                     ->url()
                     ->rule('regex:/^https:\/\/www\.youtube\.com\/embed\/[a-zA-Z0-9_-]+$/')
-                    ->helperText('Contoh: https://www.youtube.com/embed/LtWWvuqggC8'),
+                    ->helperText('Tempel kode depan embed Youtube, Contoh: https://www.youtube.com/embed/LtWWvuqggC8'),
 
                 Textarea::make('deskripsi')
                     ->label('Deskripsi')

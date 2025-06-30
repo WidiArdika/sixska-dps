@@ -48,6 +48,8 @@ class EkstrakurikulerResource extends Resource
                     ->maxSize(2048)
                     ->helperText(new HtmlString(
                         'Boleh dikosongkan<br>' .
+                        '<br>' .
+                        'Nama file maksimal 50 karakter tanpa menggunakan symbols<br>' .
                         'Format: JPEG, JPG, PNG, WebP<br>' .
                         'Gunakan Rasio [3:2] (misalnya 1920x1280)<br>' .
                         'Ukuran maksimal: 2MB'
