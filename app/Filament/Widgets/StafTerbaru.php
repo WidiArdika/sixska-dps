@@ -16,20 +16,22 @@ class StafTerbaru extends BaseWidget
     {
         return $table
             ->query(
-                Staf::latest()->limit(5)
+                Staf::latest()->limit(6)
             )
             ->paginated(false)
             ->columns([
                 Tables\Columns\TextColumn::make('nama')
                     ->label('Nama')
-                    ->limit(40),
+                    ->limit(30),
 
                 Tables\Columns\TextColumn::make('nip')
                     ->label('NIP')
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('jabatan')
-                    ->label('Jabatan'),
+                    ->label('Jabatan')
+                    ->badge()
+                    ->color('primary'),
             ]);
     }
 }

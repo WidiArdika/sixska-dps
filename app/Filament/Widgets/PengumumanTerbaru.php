@@ -16,7 +16,7 @@ class PengumumanTerbaru extends BaseWidget
     {
         return $table
             ->query(
-                Pengumuman::latest()->limit(5) // Hanya ambil 5 Pengumuman
+                Pengumuman::latest()->limit(6)
             )
             ->paginated(false)
             ->columns([
@@ -27,10 +27,14 @@ class PengumumanTerbaru extends BaseWidget
                 Tables\Columns\TextColumn::make('tanggal')
                     ->label('Tanggal')
                     ->date()
+                    ->badge()
+                    ->color('info')
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Dibuat')
+                    ->badge()
+                    ->color('info')
                     ->since(),
             ]);
     }

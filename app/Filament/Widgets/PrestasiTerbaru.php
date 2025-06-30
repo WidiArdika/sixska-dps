@@ -16,7 +16,7 @@ class PrestasiTerbaru extends BaseWidget
     {
         return $table
             ->query(
-                Prestasi::latest()->limit(5)
+                Prestasi::latest()->limit(6)
             )
             ->paginated(false)
             ->columns([
@@ -27,10 +27,14 @@ class PrestasiTerbaru extends BaseWidget
                 Tables\Columns\TextColumn::make('tanggal')
                     ->label('Tanggal')
                     ->date()
+                    ->badge()
+                    ->color('success')
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Dibuat')
+                    ->badge()
+                    ->color('success')
                     ->since(),
             ]);
     }
