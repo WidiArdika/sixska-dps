@@ -25,6 +25,7 @@ class PrestasiResource extends Resource
     protected static ?string $model = Prestasi::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-trophy';
+    protected static ?string $activeNavigationIcon = 'heroicon-s-trophy';
     protected static ?string $navigationGroup = 'Kesiswaan';
     protected static ?string $navigationLabel = 'Prestasi Siswa';
     protected static ?string $modelLabel = 'Prestasi Siswa';

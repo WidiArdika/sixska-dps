@@ -20,6 +20,7 @@ class IconContentResource extends Resource
     protected static ?string $model = IconContent::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-squares-2x2';
+    protected static ?string $activeNavigationIcon = 'heroicon-s-squares-2x2';
 
     protected static ?string $navigationLabel = 'Konten Icon Cards';
 

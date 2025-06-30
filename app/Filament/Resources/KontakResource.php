@@ -18,6 +18,7 @@ class KontakResource extends Resource
     protected static ?string $model = Kontak::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-identification';
+    protected static ?string $activeNavigationIcon = 'heroicon-s-identification';
     protected static ?string $navigationLabel = 'Kontak';
     protected static ?string $navigationGroup = 'Kontak';
     protected static ?string $modelLabel = 'Kontak';

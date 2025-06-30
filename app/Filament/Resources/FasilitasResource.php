@@ -24,6 +24,7 @@ class FasilitasResource extends Resource
     protected static ?string $model = Fasilitas::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
+    protected static ?string $activeNavigationIcon = 'heroicon-s-building-office';
     protected static ?string $navigationGroup = 'Tentang Sekolah';
     protected static ?string $navigationLabel = 'Fasilitas Sekolah';
     protected static ?string $modelLabel = 'Fasilitas Sekolah';

@@ -17,12 +17,14 @@ use Illuminate\Support\Facades\Hash;
 use Filament\Resources\Pages\Page;
 use Filament\Resources\Pages\CreateRecord;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Support\Str;
 
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user-circle';
+    protected static ?string $activeNavigationIcon  = 'heroicon-s-user-circle';
     protected static ?string $navigationLabel = 'Kelola Akun Admin';
     protected static ?string $modelLabel = 'Kelola Akun Admin';
     protected static ?string $pluralModelLabel = 'Kelola Akun Admin';
@@ -50,6 +52,12 @@ class UserResource extends Resource
                 ->maxLength(255)
                 ->dehydrated(fn ($state) => filled($state))
                 ->visible(fn (Page $livewire) => $livewire instanceof EditRecord || $livewire instanceof CreateRecord),
+
+            Forms\Components\Select::make('roles')
+                ->relationship('roles', 'name')
+                ->multiple()
+                ->preload()
+                ->searchable(),
             ]);
     }
 
@@ -58,10 +66,18 @@ class UserResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                ->searchable()
-                ->label('Username'),
-                Tables\Columns\TextColumn::make('email')->searchable(),
-                Tables\Columns\TextColumn::make('created_at')->dateTime(),
+                    ->searchable()
+                    ->label('Username'),
+                Tables\Columns\TextColumn::make('email')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('roles.name')
+                    ->label('Role')
+                    ->badge()
+                    ->colors(['primary'])
+                    ->formatStateUsing(fn ($state): string => Str::headline($state))
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime(),
             ])
             ->filters([
                 //

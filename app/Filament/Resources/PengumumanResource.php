@@ -22,6 +22,7 @@ class PengumumanResource extends Resource
     protected static ?string $model = Pengumuman::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-megaphone';
+    protected static ?string $activeNavigationIcon = 'heroicon-s-megaphone';
     protected static ?string $navigationGroup = 'Informasi';
     protected static ?string $navigationLabel = 'Pengumuman';
     protected static ?string $modelLabel = 'Pengumuman';

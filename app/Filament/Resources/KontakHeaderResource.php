@@ -19,7 +19,8 @@ class KontakHeaderResource extends Resource
 {
     protected static ?string $model = KontakHeader::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-at-symbol';
+    protected static ?string $navigationIcon = 'heroicon-o-information-circle';
+    protected static ?string $activeNavigationIcon = 'heroicon-s-information-circle';
 
     protected static ?string $navigationLabel = 'Kontak Navbar';
 

@@ -25,6 +25,7 @@ class StafResource extends Resource
     protected static ?string $model = Staf::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $activeNavigationIcon = 'heroicon-s-users';
 
     protected static ?string $navigationGroup = 'Tentang Sekolah';
 

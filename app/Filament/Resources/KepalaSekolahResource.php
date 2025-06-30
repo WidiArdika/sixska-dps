@@ -25,6 +25,7 @@ class KepalaSekolahResource extends Resource
     protected static ?string $model = KepalaSekolah::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
+    protected static ?string $activeNavigationIcon = 'heroicon-s-academic-cap';
 
     protected static ?string $navigationGroup = 'Tentang Sekolah';
 

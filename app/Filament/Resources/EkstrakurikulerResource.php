@@ -24,6 +24,7 @@ class EkstrakurikulerResource extends Resource
     protected static ?string $model = Ekstrakurikuler::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-puzzle-piece';
+    protected static ?string $activeNavigationIcon = 'heroicon-s-puzzle-piece';
     protected static ?string $navigationGroup = 'Kesiswaan';
     protected static ?string $navigationLabel = 'Ekstrakurikuler';
     protected static ?string $modelLabel = 'Ekstrakurikuler';

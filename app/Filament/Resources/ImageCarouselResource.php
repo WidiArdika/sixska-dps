@@ -21,6 +21,7 @@ class ImageCarouselResource extends Resource
     protected static ?string $model = ImageCarousel::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
+    protected static ?string $activeNavigationIcon = 'heroicon-s-photo';
 
     protected static ?string $navigationLabel = 'Image Carousel';
 

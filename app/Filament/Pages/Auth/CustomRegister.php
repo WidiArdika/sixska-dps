@@ -2,20 +2,15 @@
 
 namespace App\Filament\Pages\Auth;
 
-use App\Models\User;
 use Filament\Pages\Auth\Register;
 use Filament\Forms\Form;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Database\Eloquent\Model;
-use Filament\Forms\Components\ComponentException;
 
 class CustomRegister extends Register
 {
-    /**
-     * Override form field bawaan untuk menambahkan kode akses.
-     */
     public function getForms(): array
     {
         return [
@@ -26,8 +21,6 @@ class CustomRegister extends Register
                         $this->getEmailFormComponent(),
                         $this->getPasswordFormComponent(),
                         $this->getPasswordConfirmationFormComponent(),
-
-                        // Tambahkan input untuk kode akses
                         TextInput::make('access_code')
                             ->label('Kode Akses')
                             ->required(),
@@ -37,16 +30,10 @@ class CustomRegister extends Register
         ];
     }
 
-    /**
-     * Validasi kode akses & simpan user baru.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Database\Eloquent\Model
-     */
     protected function handleRegistration(array $data): Model
     {
-        // Ganti kode akses di sini, atau gunakan .env seperti di bawah
-        $kodeAksesValid = env('SEKOLAH2025');
+        // Validasi access code terlebih dahulu
+        $kodeAksesValid = env('ACCESS_CODE');
 
         if ($data['access_code'] !== $kodeAksesValid) {
             throw ValidationException::withMessages([
@@ -54,10 +41,16 @@ class CustomRegister extends Register
             ]);
         }
 
-        return static::getUserModel()::create([
+        // Setelah validasi berhasil, buat user
+        $user = static::getUserModel()::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => $data['password'], // Sudah di-hash otomatis oleh form component
+            'password' => $data['password'], // Sudah dihash dari form component
         ]);
+
+        // Assign role super_admin
+        $user->assignRole('super_admin');
+
+        return $user;
     }
 }

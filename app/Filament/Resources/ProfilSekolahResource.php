@@ -23,6 +23,7 @@ class ProfilSekolahResource extends Resource
     protected static ?string $model = ProfilSekolah::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-building-library';
+    protected static ?string $activeNavigationIcon = 'heroicon-s-building-library';
 
     protected static ?string $navigationGroup = 'Tentang Sekolah';
 
