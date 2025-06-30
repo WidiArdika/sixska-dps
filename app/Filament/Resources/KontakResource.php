@@ -45,6 +45,11 @@ class KontakResource extends Resource
                     ->label('Jam Kerja')
                     ->nullable(),
 
+                Forms\Components\Textarea::make('google_maps_embed')
+                    ->label('Embed Google Maps')
+                    ->rows(3)
+                    ->columnSpanFull()
+                    ->nullable(),
                 Forms\Components\TextInput::make('instagram')
                     ->label('Username Instagram')
                     ->nullable(),
