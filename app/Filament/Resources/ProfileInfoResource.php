@@ -24,7 +24,7 @@ class ProfileInfoResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-queue-list';
     protected static ?string $activeNavigationIcon = 'heroicon-s-queue-list';
 
-    protected static ?string $navigationGroup = 'Home Page';
+    protected static ?string $navigationGroup = 'Halaman Beranda';
 
     protected static ?string $navigationLabel = 'Informasi Profil Singkat';
 
