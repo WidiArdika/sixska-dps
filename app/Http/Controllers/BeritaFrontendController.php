@@ -7,11 +7,19 @@ use App\Models\Berita;
 
 class BeritaFrontendController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $berita = Berita::latest()->get();
         $beritaPertama = Berita::latest()->first();
-        $beritaKedua   = Berita::latest()->skip(1)->take(1)->first();
+        $beritaKedua = Berita::latest()->skip(1)->take(1)->first();
+
+        $query = Berita::latest();
+
+        if ($request->filled('search')) {
+            $query->where('judul', 'like', '%' . $request->search . '%');
+        }
+
+        $berita = $query->paginate(6)->withQueryString();
+
         return view('pages.informasi.berita', compact('berita', 'beritaPertama', 'beritaKedua'));
     }
 

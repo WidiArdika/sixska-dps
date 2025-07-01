@@ -11,11 +11,40 @@
     </div>
 
     <div class="w-full lg:px-45 lg:pb-12 py-8 px-4 md:px-8 font-inter">
-        <h1 class="hidden md:block mb-7 text-3xl font-bold text-stone-900">Daftar Prestasi Siswa</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            @foreach ($prestasi as $prestasi)
-                <x-prestasi-card :prestasi="$prestasi" :lineClamp="10" />
-            @endforeach
+        <div class="flex justify-between mb-7">
+            <h1 class="hidden md:block text-3xl font-bold text-stone-900">
+                @if (request('search'))
+                    Hasil Pencarian: "<span class="bg-yellow-200 px-1">{{ request('search') }}</span>"
+                @else
+                    Daftar Prestasi Siswa
+                @endif
+            </h1>
+
+            <form method="GET" action="{{ route('prestasi.index') }}" class="flex">
+                <input type="text" name="search" value="{{ request('search') }}"
+                    placeholder="Cari judul prestasi..."
+                    class="border border-gray-300 rounded-l-xl px-4 py-2 w-full focus:outline-none focus:ring focus:border-yellow-300" />
+                <button type="submit"
+                    class="bg-yellow-500 text-white px-4 py-2 rounded-r-xl hover:bg-yellow-600">
+                    Cari
+                </button>
+            </form>
         </div>
+
+        @if ($prestasi->count())
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                @foreach ($prestasi as $item)
+                    <x-prestasi-card :prestasi="$item" :lineClamp="10" />
+                @endforeach
+            </div>
+            <div class="mt-6">
+                {{ $prestasi->appends(request()->query())->links() }}
+            </div>
+        @else
+            <div class="bg-gray-100 border border-gray-400 rounded-xl w-full text-center text-gray-500 py-8">
+                Prestasi tidak ditemukan.
+            </div>
+        @endif
     </div>
+
 </x-layout>

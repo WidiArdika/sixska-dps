@@ -7,9 +7,16 @@ use App\Models\Prestasi;
 
 class PrestasiController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $prestasi = Prestasi::latest()->get();
+        $query = Prestasi::latest();
+
+        if ($request->filled('search')) {
+            $query->where('judul', 'like', '%' . $request->search . '%');
+        }
+
+        $prestasi = $query->paginate(9)->withQueryString();
+
         return view('pages.kesiswaan.prestasi', compact('prestasi'));
     }
 
