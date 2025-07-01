@@ -36,6 +36,7 @@ class PrestasiTerbaru extends BaseWidget
                     ->badge()
                     ->color('success')
                     ->since(),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada data Prestasi');
     }
 }

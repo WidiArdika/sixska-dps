@@ -84,7 +84,8 @@ class IconContentResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada data Konten Icon Cards');
     }
 
     protected static function getHeroiconsOptions(): array

@@ -90,7 +90,8 @@ class ProfilSekolahResource extends Resource
                         'record' => $record
                     ]),
             ])
-            ->paginated(false);
+            ->paginated(false)
+            ->emptyStateHeading('Tidak ada data Profil Sekolah');
     }
 
     public static function getRelations(): array

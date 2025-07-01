@@ -111,7 +111,8 @@ class EkstrakurikulerResource extends Resource
                             }
                         }),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada data Ekstrakurikuler');
     }
 
     public static function getRelations(): array

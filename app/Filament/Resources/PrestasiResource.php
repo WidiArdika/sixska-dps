@@ -121,7 +121,8 @@ class PrestasiResource extends Resource
                             }
                         }),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada data Prestasi');
     }
 
     public static function getRelations(): array

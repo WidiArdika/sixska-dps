@@ -112,7 +112,8 @@ class PengumumanResource extends Resource
                             }
                         }),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada data Pengumuman');
     }
 
     public static function getPages(): array

@@ -116,7 +116,8 @@ class JurusanResource extends Resource
                             }
                         }),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada data Jurusan');
     }
 
     public static function getRelations(): array

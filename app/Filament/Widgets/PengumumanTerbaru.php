@@ -36,6 +36,7 @@ class PengumumanTerbaru extends BaseWidget
                     ->badge()
                     ->color('info')
                     ->since(),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada data Pengumuman');
     }
 }

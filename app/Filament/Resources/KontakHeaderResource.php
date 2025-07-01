@@ -71,7 +71,8 @@ class KontakHeaderResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada data Kontak Navbar');
     }
 
     protected static function getHeroiconsOptions(): array

@@ -106,7 +106,8 @@ class ImageCarouselResource extends Resource
                         }),
                 ]),
             ])
-            ->defaultSort('id', 'desc'); // Urutkan berdasarkan ID terbaru;
+            ->defaultSort('id', 'desc')
+            ->emptyStateHeading('Tidak ada data Image Carousel');
     }
 
     public static function getRelations(): array

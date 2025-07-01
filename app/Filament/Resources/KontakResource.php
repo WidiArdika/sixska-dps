@@ -93,7 +93,8 @@ class KontakResource extends Resource
             ->paginated(false)
             ->actions([
                 Tables\Actions\EditAction::make(),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada data Kontak');
     }
 
     public static function getRelations(): array

@@ -113,7 +113,8 @@ class KepalaSekolahResource extends Resource
             ->paginated(false)
             ->actions([
                 Tables\Actions\EditAction::make(),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada data Kepala Sekolah');
     }
 
     public static function getRelations(): array

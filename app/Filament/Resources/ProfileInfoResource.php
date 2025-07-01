@@ -103,7 +103,8 @@ class ProfileInfoResource extends Resource
             ->filters([
                 //
             ])
-            ->paginated(false);
+            ->paginated(false)
+            ->emptyStateHeading('Tidak ada data Profil');
     }
 
     public static function getRelations(): array

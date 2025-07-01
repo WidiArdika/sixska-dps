@@ -122,7 +122,8 @@ class StafResource extends Resource
                             }
                         }),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada data Staf & Guru');
     }
 
     public static function getRelations(): array

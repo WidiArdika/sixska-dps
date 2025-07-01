@@ -127,7 +127,8 @@ class BeritaResource extends Resource
                             }
                         }),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada data Berita');
     }
 
     public static function getRelations(): array

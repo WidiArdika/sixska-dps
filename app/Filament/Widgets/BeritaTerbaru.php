@@ -36,6 +36,7 @@ class BeritaTerbaru extends BaseWidget
                     ->badge()
                     ->color('info')
                     ->since(),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada data Berita');
     }
 }

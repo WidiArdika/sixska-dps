@@ -26,34 +26,6 @@ use App\Filament\Pages\Auth\CustomLogin;
 
 class AdminPanelProvider extends PanelProvider
 {
-    public function boot()
-    {
-        FilamentView::registerRenderHook(
-            'panels::head.end',
-            fn (): string => Blade::render('<style>
-                ::-webkit-scrollbar { display: none; }
-                html { scrollbar-width: none; -ms-overflow-style: none; }
-                
-                /* Shadow elegan ke kanan */
-                .fi-sidebar {
-                    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-                }
-                
-                /* Shadow dengan gradient */
-                .fi-sidebar::after {
-                    content: "";
-                    position: absolute;
-                    top: 0;
-                    right: -10px;
-                    width: 10px;
-                    height: 100%;
-                    background: linear-gradient(to right, rgba(0,0,0,0.1), transparent);
-                    pointer-events: none;
-                }
-            </style>')
-        );
-    }
-
     public function panel(Panel $panel): Panel
     {
         return $panel
@@ -61,8 +33,8 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             // ->brandName('Admin Panel SIXSKA DPS')
-            ->brandLogo(asset('images/Admin-Prof.png'))
-            ->brandLogoHeight('1.7rem')
+            ->brandLogo(asset('images/logo-light.png'))
+            ->brandLogoHeight('1.8rem')
             ->favicon(asset('images/SMKN6.svg'))
             ->login(CustomLogin::class) // ⬅️ custom login
             ->registration(CustomRegister::class) // ⬅️ custom regis
@@ -114,6 +86,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->spa()
+            ->darkMode(false);
     }
 }

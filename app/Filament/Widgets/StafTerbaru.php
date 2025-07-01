@@ -32,6 +32,7 @@ class StafTerbaru extends BaseWidget
                     ->label('Jabatan')
                     ->badge()
                     ->color('primary'),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada data Staf & Guru');
     }
 }

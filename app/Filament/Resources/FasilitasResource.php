@@ -92,7 +92,8 @@ class FasilitasResource extends Resource
                                 }
                             }),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada data Fasilitas');
     }
 
     public static function getRelations(): array

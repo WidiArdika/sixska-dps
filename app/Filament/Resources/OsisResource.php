@@ -21,10 +21,10 @@ class OsisResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-table-cells';
     protected static ?string $activeNavigationIcon = 'heroicon-s-table-cells';
-    protected static ?string $navigationLabel = 'Struktur Osis';
+    protected static ?string $navigationLabel = 'Struktur OSIS';
     protected static ?string $navigationGroup = 'Kesiswaan';
-    protected static ?string $modelLabel = 'Struktur Osis';
-    protected static ?string $pluralModelLabel = 'Struktur Osis';
+    protected static ?string $modelLabel = 'Struktur OSIS';
+    protected static ?string $pluralModelLabel = 'Struktur OSIS';
 
     public static function form(Form $form): Form
     {
@@ -75,7 +75,8 @@ class OsisResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('Tidak ada data Struktur OSIS');
     }
 
     public static function getRelations(): array
