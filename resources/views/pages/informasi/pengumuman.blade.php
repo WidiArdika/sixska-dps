@@ -42,7 +42,7 @@
         @if ($pengumuman->count())
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 @foreach ($pengumuman as $item)
-                    <x-pengumuman-card :pengumuman="$item" :lineClamp="10" />
+                    <x-pengumuman-card :pengumuman="$item"/>
                 @endforeach
             </div>
             <div class="mt-6">
