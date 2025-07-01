@@ -22,7 +22,7 @@ class PengumumanTerbaru extends BaseWidget
             ->columns([
                 Tables\Columns\TextColumn::make('judul')
                     ->label('Judul')
-                    ->limit(40),
+                    ->limit(30),
 
                 Tables\Columns\TextColumn::make('tanggal')
                     ->label('Tanggal')
