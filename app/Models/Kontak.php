@@ -18,13 +18,4 @@ class Kontak extends Model
         'youtube',
         'google_maps_embed',
     ];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::saving(function ($model) {
-            $model->google_maps_embed = preg_replace('/(width|height|style)="[^"]*"/', '', $model->google_maps_embed);
-        });
-    }
 }

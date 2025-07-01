@@ -124,13 +124,16 @@
                 </div>
             </div>
             <div>
-                {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.487964488736!2d115.2483073!3d-8.6450534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23f857aab8d27%3A0xc69cc44d34fa3339!2sSMK%20Negeri%206%20Denpasar!5e0!3m2!1sid!2sid!4v1750919411868!5m2!1sid!2sid"
-                    class="aspect-square md:aspect-auto w-full h-full rounded-xl shadow-lg"
-                    style="border:0;" allowfullscreen="" loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe> --}}
                 @if ($kontak && $kontak->google_maps_embed)
-                    {!! $kontak->google_maps_embed !!}
+                    <iframe class="aspect-square md:aspect-auto w-full h-full rounded-xl shadow-lg"
+                        src="{{ $kontak->google_maps_embed }}"
+                        title="Peta Lokasi Sekolah"
+                        frameborder="0"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 @else
                     <div class="text-center text-sm text-stone-400 italic">
                         Lokasi Google Maps belum tersedia.
