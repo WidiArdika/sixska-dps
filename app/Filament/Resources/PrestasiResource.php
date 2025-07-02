@@ -19,6 +19,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\DatePicker;
+use App\Helpers\ImageHelper;
 
 class PrestasiResource extends Resource
 {
@@ -59,7 +60,9 @@ class PrestasiResource extends Resource
                 RichEditor::make('deskripsi')
                     ->label('Deskripsi Prestasi')
                     ->required()
-                    ->columnSpan(2),
+                    ->columnSpan(2)
+                    ->fileAttachmentsDirectory('prestasi/rich')
+                    ->fileAttachmentsDisk('public'),
 
                 DatePicker::make('tanggal')
                     ->required()
@@ -104,10 +107,9 @@ class PrestasiResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make()
-                    ->before(function (Prestasi $record) {
-                        if ($record->gambar && Storage::disk('public')->exists($record->gambar)) {
-                            Storage::disk('public')->delete($record->gambar);
-                        }
+                    ->before(function ($record) {
+                        ImageHelper::deleteImagesFromRecord($record, 'gambar', 'deskripsi', 'prestasi/rich');
+                        ImageHelper::deleteLivewireTmpFiles();
                     }),
             ])
             ->bulkActions([
@@ -115,9 +117,8 @@ class PrestasiResource extends Resource
                     Tables\Actions\DeleteBulkAction::make()
                         ->before(function ($records) {
                             foreach ($records as $record) {
-                                if ($record->gambar && Storage::disk('public')->exists($record->gambar)) {
-                                    Storage::disk('public')->delete($record->gambar);
-                                }
+                                ImageHelper::deleteImagesFromRecord($record, 'gambar', 'deskripsi', 'prestasi/rich');
+                                ImageHelper::deleteLivewireTmpFiles();
                             }
                         }),
                 ]),

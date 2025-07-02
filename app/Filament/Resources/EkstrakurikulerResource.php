@@ -18,6 +18,7 @@ use Illuminate\Support\HtmlString;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
+use App\Helpers\ImageHelper;
 
 class EkstrakurikulerResource extends Resource
 {
@@ -58,7 +59,9 @@ class EkstrakurikulerResource extends Resource
                 RichEditor::make('deskripsi')
                     ->label('Deskripsi Ekstrakurikuler')
                     ->required()
-                    ->columnSpan(2),
+                    ->columnSpan(2)
+                    ->fileAttachmentsDirectory('ekstrakurikuler/rich')
+                    ->fileAttachmentsDisk('public'),
             ]);
     }
 
@@ -94,10 +97,9 @@ class EkstrakurikulerResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make()
-                    ->before(function (Ekstrakurikuler $record) {
-                        if ($record->gambar && Storage::disk('public')->exists($record->gambar)) {
-                            Storage::disk('public')->delete($record->gambar);
-                        }
+                    ->before(function ($record) {
+                        ImageHelper::deleteImagesFromRecord($record, 'gambar', 'deskripsi', 'ekstrakurikuler/rich');
+                        ImageHelper::deleteLivewireTmpFiles();
                     }),
             ])
             ->bulkActions([
@@ -105,9 +107,8 @@ class EkstrakurikulerResource extends Resource
                     Tables\Actions\DeleteBulkAction::make()
                         ->before(function ($records) {
                             foreach ($records as $record) {
-                                if ($record->gambar && Storage::disk('public')->exists($record->gambar)) {
-                                    Storage::disk('public')->delete($record->gambar);
-                                }
+                                ImageHelper::deleteImagesFromRecord($record, 'gambar', 'deskripsi', 'ekstrakurikuler/rich');
+                                ImageHelper::deleteLivewireTmpFiles();
                             }
                         }),
                 ]),

@@ -16,6 +16,7 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\DatePicker;
+use App\Helpers\ImageHelper;
 
 class PengumumanResource extends Resource
 {
@@ -54,7 +55,9 @@ class PengumumanResource extends Resource
                 RichEditor::make('deskripsi')
                     ->label('Isi Pengumuman')
                     ->required()
-                    ->columnSpan(2),
+                    ->columnSpan(2)
+                    ->fileAttachmentsDirectory('pengumuman/rich')
+                    ->fileAttachmentsDisk('public'),
 
                 DatePicker::make('tanggal')
                     ->required(),
@@ -95,10 +98,9 @@ class PengumumanResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make()
-                    ->before(function (Pengumuman $record) {
-                        if ($record->gambar && Storage::disk('public')->exists($record->gambar)) {
-                            Storage::disk('public')->delete($record->gambar);
-                        }
+                    ->before(function ($record) {
+                        ImageHelper::deleteImagesFromRecord($record, 'gambar', 'deskripsi', 'pengumuman/rich');
+                        ImageHelper::deleteLivewireTmpFiles();
                     }),
             ])
             ->bulkActions([
@@ -106,9 +108,8 @@ class PengumumanResource extends Resource
                     Tables\Actions\DeleteBulkAction::make()
                         ->before(function ($records) {
                             foreach ($records as $record) {
-                                if ($record->gambar && Storage::disk('public')->exists($record->gambar)) {
-                                    Storage::disk('public')->delete($record->gambar);
-                                }
+                                ImageHelper::deleteImagesFromRecord($record, 'gambar', 'deskripsi', 'pengumuman/rich');
+                                ImageHelper::deleteLivewireTmpFiles();
                             }
                         }),
                 ]),

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Storage;
 use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\JurusanResource\Pages;
+use App\Helpers\ImageHelper;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\JurusanResource\RelationManagers;
 
@@ -63,7 +64,9 @@ class JurusanResource extends Resource
                 RichEditor::make('deskripsi')
                     ->label('Deskripsi Jurusan')
                     ->required()
-                    ->columnSpan(2),
+                    ->columnSpan(2)
+                    ->fileAttachmentsDirectory('jurusan-images/rich')
+                    ->fileAttachmentsDisk('public'),
             ]);
     }
 
@@ -97,22 +100,18 @@ class JurusanResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make()
-                    ->before(function (Jurusan $record) {
-                        // Hapus file gambar dari storage saat record dihapus
-                        if (Storage::disk('public')->exists($record->gambar)) {
-                            Storage::disk('public')->delete($record->gambar);
-                        }
+                    ->before(function ($record) {
+                        ImageHelper::deleteImagesFromRecord($record, 'gambar', 'deskripsi', 'jurusan-images/rich');
+                        ImageHelper::deleteLivewireTmpFiles();
                     }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
                         ->before(function ($records) {
-                            // Hapus file gambar dari storage untuk bulk delete
                             foreach ($records as $record) {
-                                if (Storage::disk('public')->exists($record->gambar)) {
-                                    Storage::disk('public')->delete($record->gambar);
-                                }
+                                ImageHelper::deleteImagesFromRecord($record, 'gambar', 'deskripsi', 'jurusan-images/rich');
+                                ImageHelper::deleteLivewireTmpFiles();
                             }
                         }),
                 ]),

@@ -19,6 +19,7 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\DatePicker;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Helpers\ImageHelper;
 
 class BeritaResource extends Resource
 {
@@ -65,7 +66,9 @@ class BeritaResource extends Resource
                 RichEditor::make('deskripsi')
                     ->label('Deskripsi Berita')
                     ->required()
-                    ->columnSpan(2),
+                    ->columnSpan(2)
+                    ->fileAttachmentsDirectory('berita/rich')
+                    ->fileAttachmentsDisk('public'),
 
                 DatePicker::make('tanggal')
                     ->required(),
@@ -108,22 +111,18 @@ class BeritaResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make()
-                    ->before(function (Berita $record) {
-                        // Hapus file gambar dari storage saat record dihapus
-                        if (Storage::disk('public')->exists($record->gambar)) {
-                            Storage::disk('public')->delete($record->gambar);
-                        }
+                    ->before(function ($record) {
+                        ImageHelper::deleteImagesFromRecord($record, 'gambar', 'deskripsi', 'berita/rich');
+                        ImageHelper::deleteLivewireTmpFiles();
                     }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
                         ->before(function ($records) {
-                            // Hapus file gambar dari storage untuk bulk delete
                             foreach ($records as $record) {
-                                if (Storage::disk('public')->exists($record->gambar)) {
-                                    Storage::disk('public')->delete($record->gambar);
-                                }
+                                ImageHelper::deleteImagesFromRecord($record, 'gambar', 'deskripsi', 'berita/rich');
+                                ImageHelper::deleteLivewireTmpFiles();
                             }
                         }),
                 ]),

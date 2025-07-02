@@ -47,11 +47,17 @@ class ProfilSekolahResource extends Resource
                 Forms\Components\RichEditor::make('visi_misi')
                     ->label('Visi dan Misi')
                     ->required()
+                    ->disableToolbarButtons([
+                        'attachFiles',
+                    ])
                     ->columnSpan(2),
 
                 Forms\Components\RichEditor::make('profil')
                     ->label('Profil Sekolah')
                     ->required()
+                    ->disableToolbarButtons([
+                        'attachFiles',
+                    ])
                     ->columnSpan(2),
                     ]);
     }
