@@ -17,7 +17,7 @@
     <div class="px-6 pb-4 mt-auto">
         <a href="{{ route('jurusan.show', $jurusan) }}"
             class="text-sm py-3 bg-yellow-100 rounded-xl font-inter flex items-center justify-center text-yellow-500 font-bold hover:bg-yellow-300 hover:text-yellow-900 transition">
-            Selengkapnya →
+            Selengkapnya ->
         </a>
     </div>
 </div>

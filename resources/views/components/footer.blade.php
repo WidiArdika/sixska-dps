@@ -90,9 +90,9 @@
                     <div>
                         <h3 class="text-white font-bold">Kontak</h3>
                         <hr class="text-yellow-300 w-9 my-3">
-                        <span class="block mt-2 text-sm text-stone-300 hover:text-white">+1 526 654 8965</span>
-                        <span class="block mt-2 text-sm text-stone-300 hover:text-white">example@email.com</span>
-                        <span class="block mt-2 text-sm text-stone-300 hover:text-white">JL. Uluwatu II, Jimbaran, Kec. Kuta Selatan, Kab. Badung</span>
+                        <p class="mt-2 text-sm text-stone-300 hover:text-white">{{ $kontak->telepon ?? '-' }}</p>
+                        <p class="mt-2 text-sm text-stone-300 hover:text-white">{{ $kontak->email ?? '-' }}</p>
+                        <p class="mt-2 text-sm text-stone-300 hover:text-white line-clamp-3">{{ $kontak->alamat ?? '-' }}</p>
                     </div>
 
                 </div>
