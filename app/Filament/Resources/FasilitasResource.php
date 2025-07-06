@@ -47,7 +47,9 @@ class FasilitasResource extends Resource
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg'])
                     ->helperText(new HtmlString(
                         'Nama file maksimal 50 karakter tanpa menggunakan symbols<br>' .
-                        'Format yang didukung: JPEG, JPG, PNG'
+                        'Format yang didukung: JPEG, JPG, PNG<br>' .
+                        'Ukuran Maksimal 10MB<br>' .
+                        'Disarankan Rasio Gambar : Horizontal (Rasio 2:1) atau Gambar hasil dari kamera 360°'
                     ))
                     ->preserveFilenames(false)
                     ->required()

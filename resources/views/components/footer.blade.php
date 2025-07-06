@@ -7,7 +7,7 @@
                         <img src="{{ asset('images/SMKN6.svg') }}" alt="Logo SMKN 6 Denpasar" class="h-10 w-auto">
                         SMK NEGERI 6 DENPASAR
                     </a>
-                    <p class="max-w-sm mt-2 lg:mr-12 text-justify text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatibus nam veritatis sequi quas aliquid. Error, nobis odio.</p>
+                    <p class="line-clamp-4 lg:line-clamp-3 max-w-sm mt-2 lg:mr-12 text-justify text-white">{{ $profile_info->deskripsi ?? '-' }}</p>
 
                     @php
                         $igUsername = ltrim($kontak?->instagram ?? '', '@');
@@ -102,7 +102,7 @@
         <hr class="h-px my-6 bg-stone-700 border-none">
 
         <div>
-            <p class="text-center text-xs text-white font-light">Copyright © {{ $tahun_copyright }} PNB - Teknolgi Informasi. All Right Reserved. <span class="font-bold">Website by Widi/080 & Sastra/032.</span></p>
+            <p class="text-center text-xs text-white font-light">Copyright © {{ $tahun_copyright }} SMK Negeri 6 Denpasar. All Right Reserved.</p>
         </div>
     </div>
 </footer>

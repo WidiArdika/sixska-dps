@@ -47,12 +47,14 @@ class ProfileInfoResource extends Resource
                     ->required()
                     ->url()
                     ->rule('regex:/^https:\/\/www\.youtube\.com\/embed\/[a-zA-Z0-9_-]+$/')
-                    ->helperText('Tempel kode depan embed Youtube, Contoh: https://www.youtube.com/embed/LtWWvuqggC8'),
+                    ->helperText('Tempel kode embed Youtube dari https sampai di depan tanda tanya ( ? ), Contoh : https://www.youtube.com/embed/LtWWvuqggC8'),
 
                 Textarea::make('deskripsi')
                     ->label('Deskripsi')
                     ->rows(8)
-                    ->required(),
+                    ->required()
+                    ->maxLength(700) // Atau 600 kalau mau aman
+                    ->helperText('Maksimal 700 karakter (sekitar 100 kata)'),
             ]);
     }
 

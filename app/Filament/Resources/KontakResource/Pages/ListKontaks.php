@@ -6,6 +6,8 @@ use Filament\Actions;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 use App\Filament\Resources\KontakResource;
+use App\Models\Kontak;
+use Filament\Actions\Action;
 
 class ListKontaks extends ListRecords
 {
@@ -13,31 +15,25 @@ class ListKontaks extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        // Sembunyikan tombol Create jika sudah ada data
-        return \App\Models\Kontak::count() === 0 ? [
-            CreateAction::make()
-            ->label('Tambah Informasi Kontak'),
-        ] : [];
-    }
+        $latestRecord = Kontak::latest()->first();
 
-    // protected function getRedirectUrl(): string
-    // {
-    //     $record = \App\Models\Kontak::first();
-
-    //     return $record
-    //         ? static::$resource::getUrl('edit', ['record' => $record])
-    //         : static::$resource::getUrl('create');
-    // }
-
-    public function mount(): void
-    {
-        parent::mount();
-
-        // Cek apakah sudah ada data
-        $kontak = \App\Models\Kontak::first();
-        if ($kontak) {
-            // Redirect ke halaman edit
-            $this->redirect(KontakResource::getUrl('edit', ['record' => $kontak->getKey()]));
+        // Kalau belum ada data, tampilkan tombol create saja
+        if (! $latestRecord) {
+            return [
+                Action::make('create')
+                    ->label('Buat Informasi Kontak')
+                    ->url(KontakResource::getUrl('create'))
+                    ->color('primary'),
+            ];
         }
+
+        return [
+            Action::make('edit')
+                ->label('Edit Informasi Kontak')
+                ->url(
+                    fn () => KontakResource::getUrl('edit', ['record' => $latestRecord])
+                )
+                ->color('primary'),
+        ];
     }
 }

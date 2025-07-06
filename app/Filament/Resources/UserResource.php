@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use Filament\Resources\Resource;
 use Filament\Resources\Pages\Page;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Database\Eloquent\Builder;
@@ -27,8 +28,8 @@ class UserResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-user-circle';
     protected static ?string $activeNavigationIcon  = 'heroicon-s-user-circle';
     protected static ?string $navigationLabel = 'Kelola Akun Admin';
-    protected static ?string $modelLabel = 'Kelola Akun Admin';
-    protected static ?string $pluralModelLabel = 'Kelola Akun Admin';
+    protected static ?string $modelLabel = 'Akun Admin';
+    protected static ?string $pluralModelLabel = 'Akun Admin';
     
     public static function form(Form $form): Form
     {
@@ -91,12 +92,16 @@ class UserResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->visible(fn ($record) => $record->getKey() !== Auth::id()),
+
+                Tables\Actions\DeleteAction::make()
+                    ->visible(fn ($record) => $record->getKey() !== Auth::id()),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->visible(fn () => false), // Nonaktifkan hapus massal
                 ]),
             ])
             ->emptyStateHeading('Tidak ada data User');

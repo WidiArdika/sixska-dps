@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\View;
 use App\Models\KontakHeader;
 use App\Models\Kontak;
+use App\Models\ProfileInfo;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,8 +27,12 @@ class AppServiceProvider extends ServiceProvider
         View::composer('components.header', function ($view) {
             $view->with('kontak_headers', KontakHeader::all());
         });
+        
+        View::composer('components.footer', function ($view) {
+            $view->with('profile_info', ProfileInfo::first());
+        });
 
-        View::composer('*', function ($view) {
+        View::composer('components.footer', function ($view) {
             $view->with('kontak', Kontak::first());
         });
         
