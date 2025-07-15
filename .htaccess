@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+    # Allow direct access to build folder (vite files)
+    RewriteCond %{REQUEST_URI} ^/build/.*$
+    RewriteRule ^ - [L]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
