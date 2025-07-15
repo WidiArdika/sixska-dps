@@ -24,8 +24,9 @@
                 <div class="w-full h-1 bg-yellow-500 rounded-full"></div>
             </div>
             <div class="grid grid-cols-1 gap-4 h-fit">
-                @foreach ($jurusans as $jurusan)
-                <x-jurusan-list-item :jurusan="$jurusan" />
+                {{-- Ganti $jurusan dengan $item untuk menghindari konflik --}}
+                @foreach ($jurusans as $item)
+                <x-jurusan-list-item :jurusan="$item" />
                 @endforeach
             </div>
         </div>
