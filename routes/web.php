@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\StafController;
@@ -10,23 +11,25 @@ use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\EkstrakurikulerController;
 use App\Http\Controllers\OsisController;
 use App\Http\Controllers\FasilitasController;
+
 use App\Models\ProfilSekolah;
 use App\Models\Kontak;
 
-// Gunakan hanya satu route untuk home
-Route::get('/', [HomePageController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return view('home');
+})->name('home');
 
 Route::get('/profil-sekolah', function () {
     $data = ProfilSekolah::first();
     return view('/pages/tentang-sekolah/profil-sekolah', compact('data'));
 })->name('profil.sekolah');
 
+Route::get('/', [HomePageController::class, 'index'])->name('home');
+
 Route::get('/staf-guru', [StafController::class, 'index'])->name('staf.guru');
 
-// Perbaiki route jurusan
-Route::get('/jurusan/{jurusan:slug}', [JurusanController::class, 'show'])->name('jurusan.show');
+Route::get('/jurusan/{slug}', [JurusanController::class, 'show'])->name('jurusan.show');
 
-// Route lainnya...
 Route::get('/berita', [BeritaFrontendController::class, 'index'])->name('berita.index');
 Route::get('/berita/{slug}', [BeritaFrontendController::class, 'show'])->name('berita.show');
 

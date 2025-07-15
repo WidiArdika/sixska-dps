@@ -7,9 +7,12 @@ use Illuminate\Http\Request;
 
 class JurusanController extends Controller
 {
-    public function show(Jurusan $jurusan)
+    public function show($slug)
     {
-        // Ambil semua jurusan kecuali yang sedang ditampilkan
+        // Manual query berdasarkan slug
+        $jurusan = Jurusan::where('slug', $slug)->firstOrFail();
+        
+        // Ambil jurusan lainnya
         $jurusans = Jurusan::where('id', '!=', $jurusan->id)->latest()->get();
 
         return view('pages.jurusan.show', compact('jurusan', 'jurusans'));
