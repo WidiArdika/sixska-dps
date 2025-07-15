@@ -122,7 +122,7 @@
                         <ul class="flex flex-col space-y-2 bg-stone-800 p-2 rounded-md shadow-inner">
                             @foreach ($jurusans as $jurusan)
                                 <li>
-                                    <a href="{{ route('jurusan.show', ['jurusan' => $jurusan]) }}"
+                                    <a href="{{ route('jurusan.show', ['slug' => $jurusan->slug]) }}"
                                     class="block p-2 text-stone-300 hover:text-white">
                                         {{ $jurusan->nama }}
                                     </a>
@@ -142,7 +142,7 @@
                         <ul class="py-2">
                             @foreach ($jurusans as $jurusan)
                                 <li>
-                                    <a href="{{ route('jurusan.show', ['jurusan' => $jurusan]) }}"
+                                    <a href="{{ route('jurusan.show', ['slug' => $jurusan->slug]) }}"
                                     class="block px-4 py-2 text-stone-300 hover:bg-stone-800 hover:text-white">
                                         {{ $jurusan->nama }}
                                     </a>
