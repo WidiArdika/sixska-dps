@@ -16,6 +16,6 @@
     },
     "dependencies": {
         "alpinejs": "^3.14.9",
-        "panolens": "^0.12.1"
+        "panolens": "^0.10.4"
     }
 }
